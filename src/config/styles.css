@@ -1,0 +1,55 @@
+/* Start -------------- Login - Register */
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 70px;
+    box-shadow: 8px 8px 15px;
+}
+
+.textbox-wrapper {
+    padding: 10px;
+    border-radius: 3px;
+    border: 0.5px solid lightgray;
+    align-items: center;
+    margin: 10px;
+    width: 180px;
+}
+
+.button-wrapper {
+    padding: 5px 12px 5px 12px;
+    border: 1px solid #007bff;
+    color: white;
+    background: #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* End ---------- Login - Register */
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin-top: 10px;
+  }
+  /* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
