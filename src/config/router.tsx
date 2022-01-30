@@ -1,19 +1,16 @@
 import React, { useMemo } from 'react';
 import { Route, Router as BrowserRouter, Switch } from 'react-router-dom';
-import { mapIn } from 'redux-immutable-helper';
 import { createBrowserHistory } from 'history';
-import { ModalContainer, ModalRoute } from 'react-router-modal';
+import { ModalContainer } from 'react-router-modal';
 
 import '../config/styles.css';
 
 import Layout from '../layout/Layout';
-import Login from '../pages/Auth/views/Login';
-import Register from '../pages/Auth/views/Register';
 
 import Home from '../pages/Home/views/Home';
 import Candidates from '../pages/Candidates/views/Candidates';
 import CandidateDetail from '../pages/Candidates/views/CandidateDetail';
-import AboutUs from '../pages/AboutUs/AboutUs';
+import AboutUs from '../pages/AboutUs/views/AboutUs';
 
 import NotFound from '../layout/components/NotFound';
 
@@ -37,17 +34,6 @@ interface IRoute {
 }
 
 const _routes = {
-	// Auth
-	Login: {
-		path: '/account/login',
-		component: Login,
-		exact: true,
-	},
-	Register: {
-		path: '/account/Register',
-		component: Register,
-		exact: true
-	},
 
 	// Home
 	Home: {
@@ -69,6 +55,8 @@ const _routes = {
 		exact: true,
 		parentPath: '/candidates'
 	},
+
+	// AboutUs
 	AboutUs: {
 		path: '/aboutUs',
 		component: AboutUs,
@@ -110,43 +98,12 @@ export default () => {
 		[],
 	);
 
-	const renderModals = useMemo(
-		() =>
-			Object.values(routes)
-				.filter(value => value.isModal)
-				.map(({ path, parentPath, params, component, exact }, index) => (
-					<ModalRoute
-						key={index}
-						path={path.concat(params || '')}
-						parentPath={parentPath}
-						component={() => (
-							<Layout
-								layoutOptions={component.layoutOptions || {}}
-								Component={component}
-							/>
-						)}
-						exact={exact}
-						history={history}
-						className='react-router-custom-modal'
-						inClassName='react-router-custom-modal-in'
-						outClassName='react-router-custom-modal-out'
-						backdropClassName='react-router-custom-backdrop'
-						backdropInClassName='react-router-custom-backdrop-in'
-						backdropOutClassName='react-router-custom-backdrop-out'
-						onBackdropClick={onNavigateParentPath(parentPath)}
-						outDelay={300}
-					/>
-				)),
-		[],
-	);
-
 	return (
 		<BrowserRouter history={history}>
 			<Switch>
 				{renderPages}
 				<Route path='/*' component={NotFound} />
 			</Switch>
-			{renderModals}
 			<ModalContainer />
 		</BrowserRouter>
 	);

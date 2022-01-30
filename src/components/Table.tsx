@@ -3,6 +3,8 @@ import { withStyles } from '@material-ui/core/styles';
 import SearchBar from './SearchBar';
 import TablePagination from './TablePagination';
 
+import '../styles/style.less';
+
 const styles: any = {
   table: {
     fontFamily: 'arial, sans-serif',
@@ -50,7 +52,7 @@ const Table = (props: Props) => {
         placeholder={placeholder}
       />
       {/* className={classes.table} */}
-      <table>
+      <table className='.main'>
         {header}
         {renderEntries().map((entry: any) => {
           return renderRow(entry)})}

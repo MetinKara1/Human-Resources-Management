@@ -2,10 +2,7 @@ import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from '../config/store';
 
-import Alert from './components/Alert';
 import Header from './components/Header';
-import Footer from './components/Footer';
-import Menu from './components/Menu';
 
 interface Props {
     layoutOptions: {
@@ -29,13 +26,11 @@ const MainLayout = (props: Props) => {
 
     return (
         <div className='super_container'>
-            <Menu />
             <Header />
             <div className=''>
                 {/* <Alert visible={!isModalVisible && visible} type={type} message={message} /> */}
                 {children}
             </div>
-            {/* <Footer /> */}
         </div>
     )
 }

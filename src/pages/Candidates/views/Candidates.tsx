@@ -2,8 +2,6 @@ import React, { useCallback, FormEvent, useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "../../../config/store";
 import { navigate } from "../../Services/action";
-// import { login, changeEmail, changePassword } from "../logic/action";
-import { setLayoutOptions } from "../../../layout/Layout";
 import { getCandidates } from "../logic/action";
 import Table from "../../../components/Table";
 import { STATES_ABBR } from "../../../config/constant";
@@ -197,7 +195,4 @@ const Candidates = () => {
   );
 };
 
-setLayoutOptions(Candidates, {
-  layout: "MainLayout",
-});
 export default Candidates;
