@@ -17,7 +17,6 @@ const Candidates = () => {
   const [stateFilter, setStateFilter] = useState("all");
 
   const candidates = useSelector((state) => state.candidates.candidates);
-  console.log("candidates: ", candidates);
   //   const onEmailChange = useCallback((e: FormEvent<HTMLInputElement>) => {
   //     dispatch(changeEmail(e.currentTarget.value));
   //   }, []);
