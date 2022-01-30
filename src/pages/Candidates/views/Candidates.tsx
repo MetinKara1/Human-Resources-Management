@@ -1,4 +1,4 @@
-import React, { useCallback, FormEvent, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "../../../config/store";
 import { navigate } from "../../Services/action";
@@ -9,86 +9,17 @@ import { STATES_ABBR } from "../../../config/constant";
 const Candidates = () => {
   const dispatch = useDispatch();
 
-  const [showLoader, setLoader] = useState(false);
-
   const [genreFilter, setGenreFilter] = useState("all");
   const [stateFilter, setStateFilter] = useState("all");
 
   const candidates = useSelector((state) => state.candidates.candidates);
-  //   const onEmailChange = useCallback((e: FormEvent<HTMLInputElement>) => {
-  //     dispatch(changeEmail(e.currentTarget.value));
-  //   }, []);
-
-  //   const onPasswordChange = useCallback((e: FormEvent<HTMLInputElement>) => {
-  //     dispatch(changePassword(e.currentTarget.value));
-  //   }, []);
-
-  //   const onLoginClick = useCallback(() => {
-  //     setLoader(true);
-  //     dispatch(login());
-  //   }, []);
 
   useEffect(() => {
-    console.log("çalıoştıı");
     dispatch(getCandidates());
   }, []);
 
-  const onNavigateRegister = useCallback(() => {
-    dispatch(navigate("Register"));
-  }, []);
-
-  const tableHeaders = ["name", "username", "email", "detay"];
-  // const renderRow = (data: any) => {
-  //   // console.log("data: ", data);
-  //   return (
-  //     <>
-  //       {data &&
-  //         data.length &&
-  //         data.map((item: any) => {
-  //           return (
-  //             <tr key={item.id}>
-  //               <td>{item.name}</td>
-  //               <td>{item.username}</td>
-  //               <td>{item.phone}</td>
-  //               <button
-  //                 type="button"
-  //                 onClick={() => navigate("CandidateDetail", ...[`${item.id}`])}
-  //               >
-  //                 Detay
-  //               </button>
-  //             </tr>
-  //           );
-  //         })}
-  //     </>
-  //   );
-  //   // return <div>test</div>
-  // };
-  // const renderTable = (data: any) => {
-  //   return (
-  //     <table style={{ border: "1px solid black" }}>
-  //       <thead>
-  //         <tr style={{ border: "1px solid black" }}>
-  //           {tableHeaders.map((item) => (
-  //             <th
-  //               style={{
-  //                 border: "1px solid black",
-  //               }}
-  //             >
-  //               {item} <span>Filtre</span>
-  //             </th>
-  //           ))}
-  //         </tr>
-  //       </thead>
-  //       <tbody>{renderRow(data)}</tbody>
-  //     </table>
-  //   );
-  // };
 
   const generateRow = (row: any) => {
-    console.log(
-      "fielddddd: ",
-      headerOptions.map((field: any) => row[field.id])
-    );
     return (
       <tr key={row.id}>
         {headerOptions.map((field: any) => (
@@ -98,7 +29,7 @@ const Candidates = () => {
         ))}
         <td>
           <button onClick={() => navigate("CandidateDetail", ...[`${row.id}`])}>
-            detay
+            Detay
           </button>
         </td>
       </tr>
@@ -173,8 +104,6 @@ const Candidates = () => {
     <form className="" style={{ margin: 100 }}>
       <h2>Candidates</h2>
 
-      {/* <div>{renderTable(candidates)}</div> */}
-
       <Table
         renderRow={(row: any) => generateRow(row)}
         entries={candidates}
@@ -183,14 +112,6 @@ const Candidates = () => {
         textfilterOptions={["name", "username", "email"]}
         pageLimit={10}
       />
-
-      {showLoader && (
-        <div className="row">
-          <div className="col-md-12">
-            <div className="loader"></div>
-          </div>
-        </div>
-      )}
     </form>
   );
 };

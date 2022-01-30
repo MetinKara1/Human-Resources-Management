@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import SearchBar from './SearchBar';
-import TablePagination from './TablePagination';
 
 import '../styles/style.less';
 
@@ -51,18 +50,11 @@ const Table = (props: Props) => {
         setValue={setFilter}
         placeholder={placeholder}
       />
-      {/* className={classes.table} */}
       <table className='.main'>
         {header}
         {renderEntries().map((entry: any) => {
           return renderRow(entry)})}
       </table>
-      {/* <TablePagination 
-        pageLimit={pageLimit}
-        pages={getFilteredEntries().length}
-        currentPage={page}
-        setPage={setPage}
-      /> */}
     </div>
   )
 }

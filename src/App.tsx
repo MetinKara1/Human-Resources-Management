@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 
 import Router from './config/router';
 import { store } from './config/store';
-import logo from './logo.svg';
 import './App.css';
 
 

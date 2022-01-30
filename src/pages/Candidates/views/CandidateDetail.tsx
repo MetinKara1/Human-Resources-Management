@@ -57,7 +57,4 @@ const CandidateDetail = () => {
   );
 };
 
-setLayoutOptions(CandidateDetail, {
-  layout: "MainLayout",
-});
 export default CandidateDetail;
