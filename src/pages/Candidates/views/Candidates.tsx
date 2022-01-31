@@ -74,7 +74,7 @@ const Candidates = () => {
         renderRow={(row: any) => generateRow(row)}
         entries={candidates}
         header={header}
-        placeholder="Search by name, username, email, phone"
+        placeholder="Ad Soyad, kullanıcı adı ve maile göre filtreleme yapabilirsiniz"
         textfilterOptions={["name", "username", "email"]}
         pageLimit={10}
       />
