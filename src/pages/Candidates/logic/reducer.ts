@@ -3,11 +3,6 @@ import { Reducer } from "redux";
 import { Action, ActionTypes, State } from "./type";
 
 const initialState: State = {
-  name: "",
-  email: "",
-  phone: "",
-  password: "",
-  rePassword: "",
   candidates: [],
   candidateDetails: {},
 };
@@ -24,7 +19,6 @@ const candidates: Reducer<State, Action> = (
       };
 
     case ActionTypes.get_candidate_details_result:
-      console.log("geldiiiiiiiii", action);
       return {
         ...state,
         candidateDetails: action.candidateDetails,

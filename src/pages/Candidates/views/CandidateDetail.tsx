@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { setLayoutOptions } from "../../../layout/Layout";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "../../../config/store";
 import { getCandidateDetails } from "../logic/action";
@@ -7,7 +6,6 @@ import { getCandidateDetails } from "../logic/action";
 const CandidateDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  console.log("sonunda çalıştıııı", id);
 
   const candidateDetails = useSelector(
     (state) => state.candidates.candidateDetails
@@ -17,7 +15,7 @@ const CandidateDetail = () => {
     dispatch(getCandidateDetails(id || ""));
   }, [id]);
 
-  const tableHeads = ["Ad", "Soyad", "Telefon", "Web Sitesi"];
+  const tableHeads = ["Ad Soyad", "Kullanıcı Adı", "Telefon", "Web Sitesi"];
   const renderRow = (data: any) => {
     // console.log("data: ", data);
     return (

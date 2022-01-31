@@ -1,5 +1,3 @@
-import { Action as ReduxAction } from 'redux';
-
 import { AppAction, AppResultAction } from '../../config/types';
 import { RouteName } from '../../config/router';
 

@@ -31,18 +31,7 @@ export type Action = AppAction &
   GetCandidateDetailsAction &
   GetCandidateDetailsResultAction;
 
-interface Candidates {
-  name: string;
-  surname: string;
-  phone: string;
-}
-
 export interface State {
-  name: string;
-  email: string;
-  phone: string;
-  password: string;
-  rePassword: string;
   candidates: any;
   candidateDetails: any;
 }
